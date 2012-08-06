@@ -1,0 +1,43 @@
+<html>
+	<head></head>
+	<body>
+		<script type="text/javascript">
+			document.write(3+true);	
+			document.write(!!NaN);
+
+			var n=1;
+			var m=n;
+			function add_to_total(total,x){
+				total = total+x;
+			}
+
+			add_to_total(n,m);
+
+			if(n==1) m=2;
+				
+			document.write(m);
+
+			//Object reference
+
+			var currentDate = new Date("2012","08","06");
+
+			function appendPassword(date){
+				date.setDate(7)
+			}
+
+			function appendPassword2(date){
+			       date= new Date(2012,8,8); 
+			}
+			
+			document.write("<br>");
+			//appendPassword(currentDate);
+			appendPassword2(currentDate);
+			document.write(currentDate);
+
+                        var s1 = "hello";
+			var s2 = "hell"+"o";
+
+			if(s1==s2) document.write('Strings compared by value');
+		</script>
+	</body>
+</html>
