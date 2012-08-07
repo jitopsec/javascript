@@ -1,0 +1,19 @@
+<html>
+	<head></head>
+	<body>
+		<script type="text/javascript">
+	          scope = "global";
+
+		  function checkScope(){
+		  	scope = "local";
+			document.write(scope);
+			myscope = "local";
+			document.write(myscope);
+		  }
+
+		  checkScope();
+		  document.write(scope);
+		  document.write(myscope);
+		</script>
+	</body>
+</html>

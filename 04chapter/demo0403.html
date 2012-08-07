@@ -1,0 +1,25 @@
+<html>
+	<head></head>
+	<body>
+		<script type="text/javascript">
+var scope = "global scope";
+function checkscope(){
+
+	var scope = "local scope";
+	function nested(){
+		var scope = "nested scope";
+		document.write(scope);
+	}
+	nested();
+	document.write(scope);
+
+}
+document.write(scope);
+
+checkscope();
+
+nested();
+
+		</script>
+	</body>
+</html>
