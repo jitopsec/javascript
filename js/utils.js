@@ -23,3 +23,28 @@ function max(/*......*/){
 	}
 	return m;
 }
+
+
+function copyProperties(/*object*/ from ,/*object*/ to){
+	if(!to){
+		to = {};
+	}
+
+	for(p in from){
+		to[p] = from[p];
+	}
+	return to;
+}
+
+function  filterArray(/*array*/ array ,/*boolean function*/ filter){
+
+	var  results = [];
+	var length = a.length;
+	for(var i=0;i<length;i++){
+		var element = a[i];
+		if(filter(element)){
+			results.push(element);
+		}
+	}
+	return results;
+}
