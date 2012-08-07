@@ -1,0 +1,25 @@
+From 8a4ec47ba2676d5e9a898a0bbfef56735ca2d7ca Mon Sep 17 00:00:00 2001
+From: WangTong <wangtong@ec.com.cn>
+Date: Mon, 6 Aug 2012 11:22:28 +0800
+Subject: [PATCH] javascript templete
+
+---
+ blank.html |    8 ++++++++
+ 1 files changed, 8 insertions(+), 0 deletions(-)
+
+diff --git a/blank.html b/blank.html
+index e69de29..813a990 100644
+--- a/blank.html
++++ b/blank.html
+@@ -0,0 +1,8 @@
++<html>
++	<head></head>
++	<body>
++		<script type="text/javascript">
++		
++		</script>
++	</body>
++</html>
+-- 
+1.7.4.msysgit.0
+

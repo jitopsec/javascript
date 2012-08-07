@@ -4,7 +4,15 @@
 	</head>
 	<body>
 		<script type="text/javascript">
-		
+function f(x){
+	println(x);
+	println(arguments[0]);
+	x=10;
+	println(arguments[0]);
+	println(x);
+	println(arguments["0"]);
+}		
+f(9);
 		</script>
 	</body>
 </html>

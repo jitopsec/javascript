@@ -1,0 +1,26 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+function check(arg){
+
+	var actual = arg.length;
+	var expect = arg.callee.length;
+
+	if(actual != expect){
+		throw new Error("Wrong nember of arguments , expect=["+expect+"] actual=["+actual+"]");
+	}
+}		
+
+function fn(x,y,z){
+
+	check(arguments);
+
+}
+
+fn(222);
+		</script>
+	</body>
+</html>

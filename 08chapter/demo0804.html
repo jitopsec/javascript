@@ -1,0 +1,18 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		value=10;
+function add(x,y){return x+y+this.value;};
+
+var sumObject = new Object();
+
+sumObject.method = add;
+sumObject.value = 5;
+println(add(1,2));
+println(sumObject.method(1,2));
+		</script>
+	</body>
+</html>

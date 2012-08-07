@@ -1,0 +1,25 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+var value =100;
+
+var instance = new Object();
+
+instance.value = 1000;
+instance.method =function(){
+	println("this.value"+this.value);
+          println("value"+value);
+	function innerFunction(){
+		//println(this.value);
+		println(value);
+	}
+	innerFunction();
+}
+
+instance.method();
+		</script>
+	</body>
+</html>
