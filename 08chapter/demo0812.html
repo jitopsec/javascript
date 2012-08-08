@@ -1,0 +1,36 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+/*	
+	var uniqueID = function(){
+		if(!arguments.callee.id) arguments.callee.id=0;
+
+		return "id_"+arguments.callee.id++;
+	}	
+
+	for(var i=0;i<10;i++)
+		println(uniqueID());
+	
+        uniqueID.id = 100;
+
+	for(;i<20;i++){
+		println(uniqueID());
+	}
+
+*/
+
+var uniqueID = (function(){
+	var id=0;
+
+	return function(){ return "_id_"+(id++);};
+})();
+for(var i=0;i<10;i++)
+	println(uniqueID());
+
+
+</script>
+	</body>
+</html>

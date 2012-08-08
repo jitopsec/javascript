@@ -1,3 +1,8 @@
+var uniqueID = (function(){
+        var id=0;
+        return function(){ return "_id_"+(id++);};
+})();
+
 function println(message){
 
 	document.write(message,"<br>");
@@ -23,7 +28,6 @@ function max(/*......*/){
 	}
 	return m;
 }
-
 
 function copyProperties(/*object*/ from ,/*object*/ to){
 	if(!to){
