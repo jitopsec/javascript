@@ -1,0 +1,20 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+var point  = {x:0,y:0};
+
+function display(){
+	println(this.x+" "+this.y);
+}
+
+display.call(point);
+
+var person = {name:"wangsuchen",age:"0+"};
+
+display.call(person);
+		</script>
+	</body>
+</html>
