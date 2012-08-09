@@ -1,0 +1,46 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	/*
+		function Rectangle(w,h){
+			this.w = w;
+			this.h = h;
+
+			//Note:no return statement here
+		}
+		var rect1 = new Rectangle(31,31);
+		var rect2 = new Rectangle(3,1);
+
+	        rect1.area = function(){
+			return this.w * this.h;
+		}
+
+		println(rect1.area());
+	*/
+
+		function Rectangle(w,h){
+			this.w = w+10;
+			this.h = h+10;
+			this.area = function(){return this.w * this.h;}; // return 100,121,144,169,196
+			//this.area = function(){return w * h}; // return 1,4,9,16
+		}
+
+		for(var i=0;i<5;i++){
+			var rect = new Rectangle(i,i);
+			println(rect.area());
+		}
+	        
+		if((new Rectangle(1,1)).area == (new Rectangle(2,2)).area)
+			println("single function area.");
+
+		function test(){
+			println("t");
+		}
+
+		println(test.prototype.constructor.toString());
+		</script>
+	</body>
+</html>
