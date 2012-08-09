@@ -1,0 +1,48 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function ImmutableRectangle(w,h){
+			//with(this){
+			var width = w;
+			var height = h;
+			this.getWidth = function(){return width;};
+			this.getHeight = function(){return height};
+			this.setWidth = function(sw){ width=sw;};
+			this.setHeight = function(sh){ height=sh;};
+		}
+
+		ImmutableRectangle.prototype.area = function(){
+			return this.getWidth() * this.getHeight();
+		}
+
+		var iRect = new ImmutableRectangle(2,5);
+
+		println("Rect width:"+iRect.w);
+		println("Rect width:"+iRect.getWidth());
+		
+		println("Rect height:"+iRect.h);
+		println("Rect height:"+iRect.getHeight());
+
+		println("Rect area :"+iRect.area());
+
+		println("=================SET RECTANGLE Width and Height==============================");
+
+		iRect.setWidth(10);
+		iRect.setHeight(20);
+
+		println("Rect function.paramater width:"+iRect.w);
+		println("Rect method width:"+iRect.getWidth());
+		println("Rect variable width:"+iRect.width);
+		println("Rect function.paramater height:"+iRect.h);
+		println("Rect method height:"+iRect.getHeight());
+		println("Rect variable height:"+iRect.height);
+
+
+		println("Rect area :"+iRect.area());
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+/*
+Note:两种定义函数的方式，对构造函数同样有效
+function Circle(radius){
+	this.r = radius;
+}
+*/
+var Circle = function(radius){this.r = radius};
+
+/*
+Note:实例方法
+*/
+Circle.prototype.area = function(){return Circle.PI*this.r*this.r;};
+Circle.prototype.toString = function(){
+        return "{circle's radius :"+this.r+"}";
+};
+
+/*
+
+Note:‘类’变量和方法
+*/
+Circle.PI=3.14159;
+Circle.max = function(a,b){
+	if(a.r>b.r){ 
+		return a;
+	}else{
+		return b;
+	}
+}
+
+var c = new Circle(4);
+println("Circle instance property r :"+c.r);
+c.r =5;
+println("Circle instance property r :"+c.r);
+var area = c.area();
+println("Circle instance property r="+c.r+" area="+area);
+var x = Math.exp(Circle.PI);
+println("Circle class property PI ="+x);
+
+var d = new Circle(8);
+var bigger = Circle.max(c,d);
+
+println(" c.r=5 and d.r=8 is bigger "+bigger.r);
+
+println(c);
+		</script>
+	</body>
+</html>
