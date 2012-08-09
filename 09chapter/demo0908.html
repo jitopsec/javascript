@@ -5,6 +5,18 @@
 	</head>
 	<body>
 		<script type="text/javascript">
+
+		function Circle(r){
+			this.r = r;
+		}
+
+		Circle.prototype.area = function(){3.25 * r* r;};
+		println(Circle.prototype.constructor);
+
+		var circle = new Circle(5);
+
+		println(circle.constructor == Circle);
+
 		function Rectangle(w,h){
 			this.width = w;
 			this.height = h;
@@ -13,16 +25,20 @@
 		Rectangle.prototype.area = function(){return this.width*this.height;};
 
 		function PositionRectangle(x,y,w,h){
-			Rectangle.call(this,w,h);
+			//this.width = w;
+			//this.height = h;
+		//	Rectangle.call(this,w,h);
+			this.superclass(w,h);
 			this.x = x;
 			this.y = y;
 		}
 
 		PositionRectangle.prototype = new Rectangle();
+		PositionRectangle.prototype.superclass = Rectangle;
 		delete PositionRectangle.prototype.width;
 		delete PositionRectangle.prototype.height;
 
-		PositionRectangle.prototype.constructor = PositionRectangle;
+	//	PositionRectangle.prototype.constructor = PositionRectangle;
 
 		PositionRectangle.prototype.contains = function(x,y){
 			return (x>this.x 
@@ -31,10 +47,16 @@
 				&& (y<(this.y+this.heigth)));
 		};
 
-		var prect = new PositionRectangle(2,2,2,2);
+		var prect = new PositionRectangle(2,2,12,21);
 		var x = 3,y=3;
 		println("point x="+x+" y="+y+"is contained by Rectangle "+prect.contains(x,y));
 		println("PositionRectangle area "+prect.area());
+
+		prect.constructor = PositionRectangle;
+println("prect instance's constructor :"+prect.constructor);
+
+var rect = new Rectangle(22,222);
+println("rect instance's constructor :"+rect.constructor);
 
 		</script>
 	</body>

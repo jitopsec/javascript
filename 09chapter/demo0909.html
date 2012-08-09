@@ -1,0 +1,33 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	function borrowMethods(source,destination){
+		
+		var from = source.prototype;
+		var to = destination.prototype;
+
+		for(var m in from){
+			if(typeof from[m] != "function") continue;
+			to[m] = from[m];
+		}
+	}
+
+	function Rectangle(w,h){
+		this.width = w;
+		this.height = h;
+	}
+	Rectangle.prototype.area = function(){return this.width * this.height;};
+	var rect = new Rectangle(10,20);
+
+	for(m in rect){
+		println(m);
+	}
+	println(rect.constructor);
+
+		</script>
+	</body>
+</html>
