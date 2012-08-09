@@ -1,0 +1,41 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		function Rectangle(w,h){
+			this.width = w;
+			this.height = h;
+		}
+
+		Rectangle.prototype.area = function(){return this.width*this.height;};
+
+		function PositionRectangle(x,y,w,h){
+			Rectangle.call(this,w,h);
+			this.x = x;
+			this.y = y;
+		}
+
+		PositionRectangle.prototype = new Rectangle();
+		delete PositionRectangle.prototype.width;
+		delete PositionRectangle.prototype.height;
+
+		PositionRectangle.prototype.constructor = PositionRectangle;
+
+		PositionRectangle.prototype.contains = function(x,y){
+			return (x>this.x 
+				&& (x<(this.x+this.width))
+				&& y>this.y
+				&& (y<(this.y+this.heigth)));
+		};
+
+		var prect = new PositionRectangle(2,2,2,2);
+		var x = 3,y=3;
+		println("point x="+x+" y="+y+"is contained by Rectangle "+prect.contains(x,y));
+		println("PositionRectangle area "+prect.area());
+
+		</script>
+	</body>
+</html>
