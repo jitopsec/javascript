@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+println("typeof null :"+typeof null);
+
+var object = {};
+println("typeof Object :"+typeof object);
+
+var i = 0;
+println("typeof i :"+typeof i);
+
+var str = "name";
+println("typeof string:"+typeof str);
+
+function fn(x,y){
+	return x+y;
+}
+
+println("typeof function:"+typeof fn);
+
+var array = [1,2,3,4,5,fn,object];
+println("typeof array:"+typeof array);
+
+var unde;
+
+println("typeof undefined:"+typeof undefined);
+</script>
+	</body>
+</html>

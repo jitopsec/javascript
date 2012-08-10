@@ -1,0 +1,44 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+function borrows(o,c){
+
+	if(o instanceof c) return true;
+
+	if(c == Arry || c==Boolean || c==Date || c ==Error
+		|| c==Function || c==Number || c == RegExp || c==String) {
+		return undefined;
+	}
+        if(typeof o == "function") o = o.prototype;
+	var proto = c.prototype;
+
+	for(var method in proto){
+		if(typeof proto[method] != "function") continue;
+		if(o[method] != proto[method]) return false;
+	}
+	return true;
+}
+
+function provides(o,c){
+	if(o instanceof c) return true;
+	if(typeof o == 'function') o = o.prototype;
+
+	if(c==Array || c==Boolean ||c==Date || c==Error ||c==Funtion
+		|| c==Number ||c==RegExp || c==String)
+		return undefined;
+	var proto = c.prototype;
+	for(var method in proto){
+		if(typeof proto[method] != 'function') continue;
+		if(!(method in o)) return false;
+		if(typeof o[p] != 'function') return false;
+		if(o[p].length != proto[p].length) return false;
+	}
+	return true;
+}
+		</script>
+	</body>
+</html>

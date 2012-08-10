@@ -1,0 +1,36 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+var d = new Date();
+
+println("new Date() is object "+(d instanceof Object));
+println("new Date() is realObject "+(d.constructor == Date));
+println("instance.toString"+(d.toString()));
+
+function User(name,age){
+
+	this.name = name;
+	this.age = age;
+}
+
+User.prototype.toString = function(){return "name:"+this.name+" age:"+this.age;};
+
+var user = new User("wangsuchen",1);
+println("user instance is type :"+typeof user);
+println("user instance is object:"+ (user instanceof Object));
+println("user instance is class User:"+ (user.constructor == User));
+println("user instance toString:"+user.toString());
+println("Function:"+User.toString());
+
+for(var name in d){
+	println(name);
+}
+
+
+		</script>
+	</body>
+</html>
