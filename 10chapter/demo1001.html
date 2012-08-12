@@ -1,0 +1,24 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	<script type="text/javascript" src="../js/com/jitopsec/Out.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		/*
+		  var com;
+                  var com = { name:'wangtong frank'};
+		  if(!com){
+		  	document.write(com.name);
+		  }else{
+		  	document.write(com.name);
+		  }
+		  */
+                var com;
+		if(!com || !com.jitopsec || !com.jitopsec.Out)
+			throw new Error("com/jitopsec/Out.js has not been loaded");
+		com.jitopsec.Out.println("Insert a");
+		</script>
+	</body>
+</html>

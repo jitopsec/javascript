@@ -1,0 +1,38 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	<script type="text/javascript" src="../js/com/jitopsec/Out.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		println(/*void*/ 'value');
+
+		var out = com.jitopsec.Out.println("module");
+
+		if(!com || !com.jitopsec || !com.jitopsec.Out)
+			throw new Error("com/jitopsec/Out.js has not been loaded");
+
+		(function(){
+		
+			var count =0;
+			function getCount(){return count;};
+			function setCount(value){count=value;return count};
+			function addCount(){return ++count;};
+			var ns = com.jitopsec.Out;
+			ns.getCount = getCount;
+			ns.setCount = setCount;
+			ns.addCount = addCount;
+		})();
+
+		println("Default count vlaue ="+com.jitopsec.Out.getCount());
+		println("Set count value="+com.jitopsec.Out.setCount(6));
+		println("Add count value="+com.jitopsec.Out.addCount());
+		println("Add count value="+com.jitopsec.Out.addCount());
+		println("Add count value="+com.jitopsec.Out.addCount());
+		println("Add count value="+com.jitopsec.Out.addCount());
+		
+
+		</script>
+	</body>
+</html>
