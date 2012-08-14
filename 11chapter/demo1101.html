@@ -7,6 +7,25 @@
 		<script type="text/javascript">
 		var pattern = /s$/;
 		var other = new RegExp("s$");
+
+		//window.location = "javascript:document.write('success');";
+		//window.location = "http://www.baidu.com";
+
+	//	alert("test");
+		var dotPattern = /./g;
+
+		var dotString="1234\nabdcd";
+		println(dotString.replace(dotPattern,"-"));
+
+		var javaPattern = /\s+java\s+/g;
+		println("I learn javascript and java language".replace(javaPattern,"C&C++"));
+
+		var numberPattern = /\d{4}/g;
+
+		println("sfier 3499 990 34 1 3242234".replace(numberPattern,"b"));
+
+		var aPattern = /a+?/g;
+		println("aaaa ba sdf 923aa".replace(aPattern,"X"));
 		</script>
 	</body>
 </html>
