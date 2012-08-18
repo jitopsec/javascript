@@ -1,0 +1,109 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			function Bounce(){}
+			
+			Bounce.prototype.start=function(){
+					this.x = (screen.width-this.w)/2;
+					this.y = (screen.height-this.h)/2;
+					this.win = window.open('javascript:"<h1>bounce</h1>"',"",
+						"left="+this.x+",top="+this.y+",width="+this.w+",height="+this.h+"status=yes");
+				this.timer = setInterval(this.nextFrame,this.interval);
+				};
+
+				Bounce.prototype.stop=function(){
+					clearInterval(this.timer);
+					if(!this.win.closed) this.win.close();
+				};
+
+				Bounce.prototype.nextFrame=function(){
+					
+					if(this.win.closed){
+						clearInterval(this.timer);
+						return;
+					}
+					if((this.x+this.dx>(screen.availWidth-this.w))||
+						(this.x+this.dx<0)) this.dx =-this.dx;
+
+					if((this.y+this.dy>(screen.availHeight-this.y))||
+						(this.y+this.dy<0)) this.dy =-this.dy;
+
+					this.x+=this.dx;
+					this.y+=this.dy;
+
+
+					this.win.moveTo(this.x,this.y);
+
+					this.win.defaultStatus = "("+this.x +","+this.y+")";
+
+
+				};
+				
+				var bounce = new Bounce();
+				bounce.x=0;
+				bounce.y=0;
+				bounce.w=200;
+				bounce.h=200;
+				bounce.dx=5,
+				bounce.dy=5,
+				bounce.interval=100,
+				bounce.win=null;
+				bounce.timer=null;
+/*
+			var bounce={
+				x:0,
+				y:0,
+				w:200,
+				h:200,
+				dx:5,
+				dy:5,
+				interval:100,
+				win:null,
+				timer:null,
+				
+				start:function(){
+					this.x = (screen.width-this.w)/2;
+					this.y = (screen.height-this.h)/2;
+					this.win = window.open('javascript:"<h1>bounce</h1>"',"",
+						"left="+this.x+",top="+this.y+",width="+this.w+",height="+this.h+"status=yes");
+				this.timer = setInterval(this.nextFrame,this.interval);
+				},
+
+				stop:function(){
+					clearInterval(this.timer);
+					if(!this.win.closed) this.win.close();
+				},
+
+				nextFrame:function(){
+					if(this.win.closed){
+						clearInterval(this.timer);
+						return;
+					}
+					if((this.x+this.dx>(screen.availWidth-this.w))||
+						(this.x+this.dx<0)) this.dx =-this.dx;
+
+					if((this.y+this.dy>(screen.availHeight-this.y))||
+						(this.y+this.dy<0)) this.dy =-this.dy;
+
+					this.x+=this.dx;
+					this.y+=this.dy;
+
+
+					this.win.moveTo(this.x,this.y);
+
+					this.win.defaultStatus = "("+this.x +","+this.y+")";
+
+
+				}
+			};
+*/		
+		</script>
+		<button onclick="bounce.start()">start</button>
+		<button onclick="bounce.stop()">stop</button>
+	</body>
+</html>

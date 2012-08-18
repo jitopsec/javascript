@@ -53,3 +53,19 @@ function  filterArray(/*array*/ array ,/*boolean function*/ filter){
 	}
 	return results;
 }
+
+function getArgs(){
+	var args = new Object();
+	var query = window.location.search.substring(1);
+	var pairs = query.split("&");
+
+	for(var i=0; i<pairs.length;i++){
+		var pos = pairs[i].indexOf("=");
+		if(pos == -1) continue;
+		var argName = pairs[i].substring(0,pos);
+		var value = pairs[i].substring(pos+1);
+                value = decodeURIComponent(value);
+		args[argName] = value;
+	}
+	return args;
+}

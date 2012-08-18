@@ -1,0 +1,31 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+	println(document.domain+"|");	
+//	var timeout = 5000;
+//	var ref = setTimeout(println('wangsuchen'),timeout);
+//	println(ref);
+//	clearTimeout(ref);
+//	var interval = setInterval(timeout);
+//	clearInterval(interval);
+       println(window.location);
+       println(window.location.protocol);
+       println(window.location.host);
+       println(window.location.pathname);
+       println(window.location.search);
+       println(getArgs()["name"]);
+
+      // window.location.reload();
+      println(window.document.location);
+
+      println("window.location typeof "+typeof window.location+" "+(window.location instanceof Location));
+      println("window.document.location typeof "+typeof window.document.location+" "+(window.document.location instanceof Location));
+       
+
+		</script>
+	</body>
+</html>

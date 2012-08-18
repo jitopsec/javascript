@@ -1,0 +1,28 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+			var desc = "Browsers Information:\n";
+
+			println(desc);
+
+			for(var name in window.navigator)
+				println(name+":"+window.navigator[name]+"\n");
+
+			println(browser.version);
+			println("browser is Netscape:"+browser.isNetscape);
+			println("browser is Microsoft:"+browser.isMicrosoft);
+/*
+			function $(desc){
+				println(desc);
+			}
+
+			$("JQuery,HI");
+*/
+		</script>
+	</body>
+</html>
