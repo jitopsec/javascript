@@ -9,11 +9,12 @@
 			function Bounce(){}
 			
 			Bounce.prototype.start=function(){
+					alert(this.dx);
 					this.x = (screen.width-this.w)/2;
 					this.y = (screen.height-this.h)/2;
 					this.win = window.open('javascript:"<h1>bounce</h1>"',"",
 						"left="+this.x+",top="+this.y+",width="+this.w+",height="+this.h+"status=yes");
-				this.timer = setInterval(this.nextFrame,this.interval);
+			                this.timer = setInterval(this.nextFrame,this.interval);
 				};
 
 				Bounce.prototype.stop=function(){
@@ -22,7 +23,7 @@
 				};
 
 				Bounce.prototype.nextFrame=function(){
-					
+					alert("nextFrame:"+this.win.innerWidth);
 					if(this.win.closed){
 						clearInterval(this.timer);
 						return;
@@ -103,7 +104,7 @@
 			};
 */		
 		</script>
-		<button onclick="bounce.start()">start</button>
-		<button onclick="bounce.stop()">stop</button>
+		<button onclick="javascript:bounce.start();">start</button>
+		<button onclick="javascript:bounce.stop();">stop</button>
 	</body>
 </html>
