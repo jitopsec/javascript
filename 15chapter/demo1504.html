@@ -1,0 +1,39 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+/*
+	HTMLElement.innerHTML
+*/
+
+		//alert(document.body.innerHTML);
+
+		var table = document.createElement("table");
+                table.border = 1;
+		table.innerHTML="<tr><th>Name</th><th>Type</th><th>value</th></tr>";
+		document.body.appendChild(table);
+		var button = document.createElement("button");
+
+		button.onclick= makeRectangle;
+
+		button.innerHTML = "Make Rectangle"
+
+		function makeRectangle(x,y,w,h){
+			log.debug("entering makeRectangle");
+		        var r = {x:x,y:y,size:{w:w,h:h}};
+		        log.debug("New rectangle",r);
+			log.debug("exiting makeRectangle");
+			return r;
+	        }
+
+		for(var name in button){
+			println(name);
+		}
+
+		document.body.appendChild(button);
+		</script>
+	</body>
+</html>
