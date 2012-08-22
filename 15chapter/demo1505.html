@@ -1,0 +1,50 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+                function getSelectedText(){
+		
+			if(window.getSelection){
+				return window.getSelection().toString();
+			}else if(document.getSelection){
+				return document.getSelection();
+			}else{
+				return document.selection.createRange().text;
+			}
+		}		
+		</script>
+
+		<a href="javascript:
+			var q = getSelectedText();
+			void window.open('http://www.baidu.com/s?wd='+q+'&rsv_bp=0&rsv_spt=3&inputT=773')">
+			look up selected Text in baidu </a>
+		<br>
+
+		<TABLE summary="This table charts the number of cups
+		                   of coffee consumed by each senator, the type 
+				                      of coffee (decaf or regular), and whether 
+						                         taken with sugar.">
+									 <CAPTION>Cups of coffee consumed by each senator</CAPTION>
+									 <TR>
+									    <TH>Name</TH>
+									       <TH>Cups</TH>
+									          <TH>Type of Coffee</TH>
+										     <TH>Sugar?</TH>
+										     <TR>
+										        <TD>T. Sexton</TD>
+											   <TD>10</TD>
+											      <TD>Espresso</TD>
+											         <TD>No</TD>
+												 <TR>
+												    <TD>J. Dinnen</TD>
+												       <TD>5</TD>
+												          <TD>Decaf</TD>
+													     <TD>Yes</TD>
+													     </TABLE>
+
+
+	</body>
+</html>
