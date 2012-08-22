@@ -1,0 +1,102 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function sortKids(e){
+			
+				if(typeof e == 'string') 
+					e = document.getElementById(e);
+				var kids =[];
+				for(var x=e.firstChild; x!=null;x=x.nextSibling){
+					if(x.nodeType == 1) kids.push(x);
+				}
+				kids.sort(function(n,m){
+					var s = n.firstChild.data;
+					var t = m.firstChild.data;
+					if(s<t) return -1;
+					else if(s>t) return 1;
+					else return 0;
+				});
+
+				for(var i=0;i <kids.length;i++)
+					e.appendChild(kids[i]);
+			}
+			
+			function upcase(n){
+				if(n.nodeType==3 /*Node.TEXT_NODE*/){
+					n.data = n.data.toUpperCase();
+				}else{
+					var kids = n.childNodes;
+					for(var i=0;i<kids.length;i++){
+						upcase(kids[i]);
+					}
+				}
+			}
+
+			function embolden(e){
+
+				if(typeof e=='string') e = document.getElementById(e);
+				var b = document.createElement("b");
+				var parent = e.parentNode;
+				parent.replaceChild(b,e);
+				b.appendChild(e);
+			}
+
+			function reverse(n){
+
+				var fragment = document.createDocumentFragment();
+
+				while(n.lastChild)
+					fragment.appendChild(n.lastChild);
+				n.appendChild(fragment);
+			
+			}
+		</script>
+		<ul id="list">
+			<li>two
+			<li>one
+			<li>four
+			<li>three
+			<li>six
+			<li>five
+		</ul>
+		<DL>
+		<DT><STRONG>Lower cost</STRONG>
+		<DD>The new version of this product costs significantly less than the
+		previous one!
+		<DT><STRONG>Easier to use</STRONG>
+		<DD>We've changed the product so that it's much easier to use!
+		<DT><STRONG>Safe for kids</STRONG>
+		<DD>You can leave your kids alone in a room with this product and
+		they won't get hurt (not a guarantee).
+		</DL>
+		<SELECT name="ComOS">
+		     <OPTION selected label="none" value="none">None</OPTION>
+		          <OPTGROUP label="PortMaster 3">
+			         <OPTION label="3.7.1" value="pm3_3.7.1">PortMaster 3 with ComOS 3.7.1</OPTION>
+				 <OPTION label="3.7" value="pm3_3.7">PortMaster 3 with ComOS 3.7</OPTION>
+				 <OPTION label="3.5" value="pm3_3.5">PortMaster 3 with ComOS 3.5</OPTION>
+			</OPTGROUP>
+			<OPTGROUP label="PortMaster 2">
+				<OPTION label="3.7" value="pm2_3.7">PortMaster 2 with ComOS 3.7</OPTION>
+			        <OPTION label="3.5" value="pm2_3.5">PortMaster 2 with ComOS 3.5</OPTION>
+			</OPTGROUP>
+			<OPTGROUP label="IRX">
+				<OPTION label="3.7R" value="IRX_3.7R">IRX with ComOS 3.7R</OPTION>
+				<OPTION label="3.5R" value="IRX_3.5R">IRX with ComOS 3.5R</OPTION>
+			</OPTGROUP>
+		</SELECT>
+
+		<HR width="50%" align="center">
+		<HR size="5" width="50%" align="center">
+		<HR noshade size="5" width="50%" align="center">
+
+		<button onclick="sortKids('list')">sort button</button>
+		<button onclick="upcase(window.document)">upper case button</button>
+		<button onclick="embolden(document.body)">Embolden button</button>
+		<button onclick="reverse(document.body)">Reverse button</button>
+	</body>
+</html>

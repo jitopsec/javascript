@@ -1,0 +1,29 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body onload="getA()">
+		<script type="text/javascript">
+		function getAllTagName(){
+			var tags = document.getElementsByTagName('*');
+			println(tags.length);
+		}
+
+		function getA(){
+			var link = id('anchor');
+			if(link != null)
+				println(link.name);
+		}
+
+		function id(x) {
+			if(typeof x =='string')
+				return document.getElementById(x);
+			return null;
+		}
+
+		</script>
+		HI.
+		<a id="anchor" name="anchorName">anchor name tag</a>
+	</body>
+</html>
