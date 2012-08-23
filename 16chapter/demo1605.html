@@ -1,0 +1,25 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<div id="urgent">
+			<h1>Red Alert</h1>
+			The Web Server is under attack
+		</div>
+		<script type="text/javascript">
+			var e = document.getElementById('urgent');
+			e.style.border = "solid black 5px";
+			e.style.padding = "50px";
+			var colors = ["gray","yellow","orange","red"];
+
+			var nextColor = 0;
+
+			setInterval(function(){
+				e.style.borderColor=colors[nextColor++%colors.length];
+			},500);
+		
+		</script>
+	</body>
+</html>
