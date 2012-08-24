@@ -1,0 +1,27 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	<script type="text/javascript" src="../js/animateCSS.js"></script>
+	</head>
+	<body>
+		<div id="tdiv">a</div>
+		<button id="tbutton">button</button>
+		<script type="text/javascript">
+	 		var tdiv = document.getElementById('tdiv');
+
+			tdiv.style.border = "solid black 2px";
+			tdiv.style.padding = "5px";
+			tdiv.width="300px";
+			tdiv.height="200px";
+
+			animateCSS(tdiv,40,50,
+			{
+				top:function(f,t){return 300-f*5+"px";},
+				clip:function(f,t){return "rect(auto "+f*10+"px auto auto)";}
+			})
+
+		</script>
+
+	</body>
+</html>

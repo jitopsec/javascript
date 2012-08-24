@@ -1,0 +1,57 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+
+	<style type="text/css">
+		h1,h2{color:blue;font-style:italic;}
+		.WARNING{
+			font-weight:bold;
+			font-size:150%;
+			margin:0 lin 0 lin;
+			background-color:yellow;
+			border:solid red 8px;
+			padding:10px;
+			position:fixed;
+			left:50px;
+			top:50px;
+			width:80px;
+			height:70px;
+		}
+
+		.WARNING h1,.WARNING h2{color:red;text-align:center;}
+
+		#P23{
+			text-align:center;
+			text-transform:uppercase;
+		}
+	</style>
+	</head>
+	<body>
+		<h1>Cascading Style Sheets Demo</h1>
+		<div class="WARNING">
+		<h2>Warning</h2>
+		This is warning!
+		Notice how it grabs your attention with it bold text and bright colors.
+		Also notice that the heading is centered and in blue italics.
+                </div>
+		<p id="p23">
+		This paragraph is centered<br>
+		<span style="text-transform: none">
+		Here we explicitly use  an inline style to override the uppercase letters.
+		</span>
+		</p>
+	</body>
+		<script type="text/javascript">
+			var ss = document.styleSheets[0];
+			var rules = ss.cssRules?ss.cssRules:ss.rules;
+
+			for(var i=0;i<rules.length;i++){
+				var rule = rules[i];
+				if(!rule.selectorText) continue;
+				var ruleText = rule.selectorText+"{"+rule.style.cssText+"}";
+
+				println(ruleText);
+			}
+		</script>
+</html>
