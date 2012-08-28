@@ -1,0 +1,31 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+
+		<a href="http://www.baidu.com">Baidu</a>
+		<a href="http://www.google.com">Google</a>
+
+		<form id="iform" onclick="alert('a')">
+		</form>
+		<script type="text/javascript">
+
+			function confirmLink(){
+				return confirm("Do you really want to visit "+this.href+"?")
+			}
+
+			for(var i=0;i<document.links.length;i++){
+				document.links[i].onclick = confirmLink;
+			}
+
+			document.getElementById('iform').onclick();
+
+			alert(document.implementation.hasFeature("Events","2.0"));
+	                alert(Geometry.getHorizontalScroll());	
+		</script>
+
+
+	</body>
+</html>
