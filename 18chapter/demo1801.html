@@ -1,0 +1,39 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+
+		<form id="form1" action="http://somesite.com/prog/adduser" method="post">
+			<INPUT type="radio" name="sex" value="Male"> Male<BR>
+		    	<INPUT type="radio" name="sex" value="Female"> Female<BR>
+			<INPUT type="submit" value="Send"> <INPUT type="reset">
+		</form>
+
+		 <FORM action="http://somesite.com/prog/adduser" method="get">
+		     <P>
+		        First name: <INPUT type="text" name="firstname"><BR>
+			Last name: <INPUT type="text" name="lastname"><BR>
+			email: <INPUT type="text" name="email"><BR>
+			<INPUT type="radio" name="sex" value="Male"> Male<BR>
+			<INPUT type="radio" name="sex" value="Female"> Female<BR>
+			<INPUT type="submit" value="Send"> <INPUT type="reset">
+		     </P>
+	        </FORM>
+
+                <button onclick="javascript:document.forms[1].reset();">Javascript Form reset</button>
+                <button onclick="javascript:document.forms[1].submit()">Javascript Form submit</button>
+		<script type="text/javascript">
+			println(document.forms[1].elements[3].value);
+
+			var form1 = document.forms[1];
+
+			form1.onsubmit=function(){
+				alert("on submit");
+				this.action="http://www.baidu.com";
+			}
+			
+		</script>
+	</body>
+</html>
