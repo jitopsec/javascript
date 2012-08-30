@@ -1,0 +1,27 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<form name="theForm">
+			<textarea name="theText" ></textarea>
+			<input type="reset">
+		</form>
+		<script type="text/javascript">
+			function report(target,msg){
+			
+				if(typeof target == "string") target = theForm.theText;
+
+				target.value=target.value+"\n"+msg;
+			}
+			document.cookie = "version="+encodeURIComponent(document.lastModified)+"; max-age="+(60*60*24);
+			document.cookie = "color="+encodeURIComponent("red")+"; max-age="+(60*60*24);
+			document.cookie = "address="+encodeURIComponent("China")+"; max-age="+(60*60*24);
+
+			report("theText",decodeURIComponent(document.cookie));
+
+//cookie total:300 ; the web server total:20;  the cookie size:4kb 
+		</script>
+	</body>
+</html>

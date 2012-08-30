@@ -1,0 +1,26 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var allcookies = document.cookie;
+
+			var pos = allcookies.indexOf("version=");
+
+			if(pos != -1){
+			
+				var start = pos+8;
+				var end = allcookies.indexOf(";",start);
+
+				if(end == -1) end = allcookies.length;
+				var value = allcookies.substring(start,end);
+				value = decodeURIComponent(value);
+
+				if(value != document.lastModified)
+					alert("This document has changed since you were last here");
+			}
+		</script>
+	</body>
+</html>
