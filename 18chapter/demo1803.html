@@ -34,10 +34,15 @@
 			  </SELECT>
 			</P>
 			<P>
-			  <INPUT type="radio" name="sex" value="_Male"> Male<BR>
+			  <INPUT type="radio" name="sex" value="_Male" > Male<BR>
 			  <INPUT type="radio" name="sex" value="_Female"> Female<BR>
 			</P>
 
+			<P>
+				<input type="text" name="username" value="unkown">
+				<BR>
+				<input type="password" name="pwd">
+			</P>
 			<P>
 				<textarea name="textarea" rows="20" cols="28"></textarea>
 			</P>
@@ -47,11 +52,39 @@
 			var textArea = document.theForm.textarea;
 			var multipleSelect = document.theForm["component-select"];
 			var redio = document.theForm.sex;
+			redio[0].defaultChecked = true;
+			for(var index=0; index<redio.length;index++){
+				redio[index].addEventListener("click",function(event){
+					var theForm=this.form;
+					theForm.textarea.value=theForm.textarea.value+"\n radio onclick:"+this.value;
+				},false);
+
+				redio[index].addEventListener("change",function(event){
+					
+					var theForm=this.form;
+					theForm.textarea.value=theForm.textarea.value+"\n radio change:"+this.value+" event:"+event.target.value+" "+event.currentTarget.value+" pwd"+theForm.username.value;
+				
+				},false);
+			}
+
+			theForm.username.addEventListener("change",function(event){
+				theForm.textarea.value = theForm.textarea.value+"\n input text[username]="+event.currentTarget.value;
+			},false);
+			theForm.username.addEventListener("keypress",function(event){
+				   theForm.textarea.value = theForm.textarea.value+"\n"+String.fromCharCode(event.charCode);
+return false;},false);
+			theForm.pwd.addEventListener("keypress",function(event){
+				   theForm.textarea.value = theForm.textarea.value+"\n"+String.fromCharCode(event.charCode);
+                                   return true;
+			},false);
 
 			textArea.value = comOS.type;
 			textArea.value = textArea.value+" \n"+multipleSelect.type;
 			textArea.value= textArea.value+"\n"+redio[0].value;
 			textArea.value= textArea.value+"\n"+redio[1].value;
+			textArea.value= textArea.value+"\n"+redio[0].defaultChecked;
+
+			
 		</script>
 	</body>
 </html>

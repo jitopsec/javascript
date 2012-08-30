@@ -1,0 +1,27 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	<script type="text/javascript" src="../js/Validate.js"></script>
+
+	<style type="text/css">
+		input.invalid{ background:#faa}
+		input.valid{background:#afa}
+	</style>
+	</head>
+	<body> 
+	<form>	
+		<!--anything other than whitespace) is required in this field -->
+	  	Name: <input type="text" name="name" required><br>
+	    	<!-- \s* means optional space. \w+ means one or more alphanumeric chars-->
+	      	email: <input type="text" name="email" pattern="^\s*\w+@\w+\.\w+\s*$"><br>
+	        <!-- \d{5} means exactly five digits -->
+	        zipcode: <input type="text" name="zip" pattern="^\s*\d{5}\s*$"><br>
+		<!-- no validation on this field -->
+	        unvalidated: <input type="text"><br> 
+	        <input type="submit">
+	</form>
+
+			
+	</body>
+</html>

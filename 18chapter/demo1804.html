@@ -1,0 +1,61 @@
+<html>
+	<head>
+	<script type="text/javascript" src="../js/utils.js"></script>
+	<script type="text/javascript" src="../js/commons.js"></script>
+	</head>
+	<body>
+		<FORM name="theForm" action="http://somesite.com/prog/component-select" method="post">
+		<SELECT size="1" name="single-select">
+		<OPTION selected value="Component_1_a">Component_1</OPTION>
+		<OPTION>Component_2</OPTION>
+		<OPTION>Component_3</OPTION>
+		<OPTION>Component_4</OPTION>
+		<OPTION>Component_5</OPTION>
+		<OPTION>Component_6</OPTION>
+		</SELECT>
+		<INPUT type="submit" value="Send"><INPUT type="reset">
+		</P>
+		<P>
+		<SELECT multiple size="4" name="multiple-select">
+			<OPTION selected value="Component_1_a">Component_1</OPTION>
+			<OPTION selected value="Component_1_b">Component_2</OPTION>
+			<OPTION>Component_3</OPTION>
+			<OPTION>Component_4</OPTION>
+			<OPTION>Component_5</OPTION>
+			<OPTION>Component_6</OPTION>
+			<OPTION>Component_7</OPTION>
+		</SELECT>
+		<INPUT type="submit" value="Send"><INPUT type="reset">
+		</P>
+		<P>
+			<TEXTAREA name="theText" rows="20" cols="80"></TEXTAREA>
+		</P>
+		</FORM>
+		<script type="text/javascript">
+
+			function report(element,value){
+				if(typeof element=="string")
+					element = document.theForm[element];
+				element.value = element.value+"\n"+value;
+			}
+
+			theForm["single-select"].addEventListener("change",
+			function(event){
+		        	report("theText","single-select:selectedIndex["+this.selectedIndex+"]");
+		        	report("theText","single-select:options[selectedIndex]["+this.options[this.selectedIndex].text+"]");
+			},
+			false);
+
+			theForm["multiple-select"].addEventListener("change",
+			function(evnet){
+				for(var i=0 ;i<this.options.length;i++){
+					if(this.options[i].selected)
+						report("theText","multiple-select:value["+this.options[i].text+"]");
+				}
+			
+			},
+			false);	
+		
+		</script>
+	</body>
+</html>
