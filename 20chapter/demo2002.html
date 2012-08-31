@@ -13,16 +13,35 @@
 		//for ie5 ie6
 		//var request = new ActiveXObject("Msxml2.XMLHTTP");
 		//var request = new ActiveXObject("Microsoft.XMLHTTP");
+
+		/*
+		  registe request onreadystatechange
+
+		  request.readystate:
+		  0: open() not call
+		  1: open is called but send not call
+		  2: send() is called but not receive response 
+		  3: receiving reponse but not finished
+		  4: receive response to finish
+		*/
+		request.onreadystatechange=function(){
+			
+			if(request.readystate == 4){
+				if(request.status == 200){
+					alert(request.responseText);
+				}
+			}	
+		}
                 
 		/*
 		* open url
 		  paramater[1]: HTTP Method:GET POST HEAD
 		  paramater[2]: HTTP URL
-		  paramater[3]:sync/async
+		  paramater[3]:sync:false/async:true(default)
 		  paramater[4]: username
 		  paramater[5]: password
 		*/
-		request.open("GET",url,false);
+		request.open("GET",url,true);
 
 		/*
 		   set HTTP request Header
