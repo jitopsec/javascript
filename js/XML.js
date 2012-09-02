@@ -39,3 +39,16 @@ XML.newDocument = function(rootTagName,namespaceURL){
 		return doc;
 	}
 };
+
+XML.getDataLand=function(id){
+
+	var doc;
+	doc = XML.getDataLand.cache[id];
+	if(doc) return doc;
+
+	doc = document.getElementById(id);
+	var url = doc.getAttribute("src");
+	if(url){
+		doc = XML.load(url);
+	}
+};
