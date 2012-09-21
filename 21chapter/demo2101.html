@@ -2,9 +2,31 @@
 	<head>
 	<script type="text/javascript" src="../js/utils.js"></script>
 	<script type="text/javascript" src="../js/commons.js"></script>
+	<script type="text/javascript" src="../js/XML.js"></script>
 	</head>
 	<body>
 		<script type="text/javascript">
+
+		var url = "http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl";
+		//var url = "file:///D:/pom.xml";
+
+		function callback(xmldoc){
+			println("callback");
+			println(countTags(xmldoc));
+		}
+
+		function countTags(xmldoc){
+			var numtags = 0;
+			if(xmldoc.nodeType == 1)
+				numtags++;
+			var children = xmldoc.childNodes;
+			for(var i=0;i<children.length;i++){
+				numtags+=countTags(children[i])
+			}
+			return numtags;
+		}
+		println(XML.NAME);
+		XML.loadAsync(url,callback);
 		
 		</script>
 	</body>
